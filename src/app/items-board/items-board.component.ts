@@ -9,40 +9,12 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./items-board.component.css']
 })
 export class ItemsBoardComponent implements OnInit {
-categories: Category[];
+categories: Observable<Category[]>;
 
   constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.httpClient.get<Category[]>('api/categories.json')
-        .subscribe(_ => this.categories = _);
-    // this.categories = [
-    //   {
-    //     id: 1,
-    //     name: 'Electronics',
-    //     iconClass: 'fa fa-desktop fa-4x'
-    // },
-    // {
-    //     id: 2,
-    //     name: 'Women',
-    //     iconClass: 'fa fa-female fa-4x'
-    // },
-    // {
-    //     id: 3,
-    //     name: 'Car',
-    //     iconClass: 'fa fa-car fa-4x'
-    // },
-    // {
-    //     'id': 4,
-    //     'name': 'Home',
-    //     'iconClass': 'fa fa-home fa-4x'
-    // },
-    // {
-    //     id: 5,
-    //     name: 'Books',
-    //     iconClass: 'fa fa-book fa-4x'
-    // }
-    // ];
+    this.categories = this.httpClient.get<Category[]>('api/categories.json');
   }
 
 }

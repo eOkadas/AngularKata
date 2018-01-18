@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "categoryId": 1,
+        "name": "Mouse",
+        "description": "awesome mouse",
+        "price": 16,
+        "imgSrc": "assets/images/mouse.jpg"
+    },
+    {
+        "id": 2,
+        "categoryId": 1,
+        "name": "Keyboard",
+        "description": "confortable keyboard",
+        "price": 30,
+        "imgSrc": "assets/images/keyboard.jpg"
+    },
+    {
+        "id": 3,
+        "categoryId": 1,
+        "name": "Screen",
+        "description": "neat and wide",
+        "price": 100,
+        "imgSrc": "assets/images/screen.jpg"
+    },
+    {
+        "id": 4,
+        "categoryId": 1,
+        "name": "USB key",
+        "description": "useful key",
+        "price": 10,
+        "imgSrc": "assets/images/usb_key.jpg"
+    },
+    {
+        "id": 5,
+        "categoryId": 1,
+        "name": "Cleaning kit",
+        "description": "because you never know",
+        "price": 5,
+        "imgSrc": "assets/images/clean_kit.jpg"
+    },
+    {
+        "id": 6,
+        "categoryId": 1,
+        "name": "Printer",
+        "description": "good deal",
+        "price": 75,
+        "imgSrc": "assets/images/printer.jpg"
+    }
+]

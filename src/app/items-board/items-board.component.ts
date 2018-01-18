@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
+import { Category } from '../common/category.model';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-items-board',
@@ -8,41 +11,38 @@ import { Component, OnInit } from '@angular/core';
 export class ItemsBoardComponent implements OnInit {
 categories: Category[];
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   ngOnInit() {
-    this.categories = [
-      {
-        id: 1,
-        name: 'Electronics',
-        iconClass: 'fa fa-desktop fa-4x'
-    },
-    {
-        id: 2,
-        name: 'Women',
-        iconClass: 'fa fa-female fa-4x'
-    },
-    {
-        id: 3,
-        name: 'Car',
-        iconClass: 'fa fa-car fa-4x'
-    },
-    {
-        'id': 4,
-        'name': 'Home',
-        'iconClass': 'fa fa-home fa-4x'
-    },
-    {
-        id: 5,
-        name: 'Books',
-        iconClass: 'fa fa-book fa-4x'
-    }
-    ]
+    this.httpClient.get<Category[]>('api/categories.json')
+        .subscribe(_ => this.categories = _);
+    // this.categories = [
+    //   {
+    //     id: 1,
+    //     name: 'Electronics',
+    //     iconClass: 'fa fa-desktop fa-4x'
+    // },
+    // {
+    //     id: 2,
+    //     name: 'Women',
+    //     iconClass: 'fa fa-female fa-4x'
+    // },
+    // {
+    //     id: 3,
+    //     name: 'Car',
+    //     iconClass: 'fa fa-car fa-4x'
+    // },
+    // {
+    //     'id': 4,
+    //     'name': 'Home',
+    //     'iconClass': 'fa fa-home fa-4x'
+    // },
+    // {
+    //     id: 5,
+    //     name: 'Books',
+    //     iconClass: 'fa fa-book fa-4x'
+    // }
+    // ];
   }
 
-}
-export interface Category {
-  id: number;
-  name: string;
-  iconClass: string;
 }

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Category } from '../common/category.model';
 import { HttpClient } from '@angular/common/http';
+import { CategoryService } from 'app/services/category.service';
 
 @Component({
   selector: 'app-items-board',
@@ -11,10 +12,10 @@ import { HttpClient } from '@angular/common/http';
 export class ItemsBoardComponent implements OnInit {
 categories: Observable<Category[]>;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private categoryService: CategoryService) { }
 
   ngOnInit() {
-    this.categories = this.httpClient.get<Category[]>('api/categories.json');
+    this.categories = this.categoryService.LoadCategories();
   }
 
 }
